@@ -1,7 +1,7 @@
 export default class Namespace {
 
-  private _name: string = "";
-  private _level: number = 0;
+  private _name = "";
+  private _level = 0;
 
   // Getters and Setters
   get name(): string {
@@ -18,9 +18,9 @@ export default class Namespace {
   }
 
   get Sublevels(): Array<string> {
-    let parts = this.name.split(".");
+    const parts = this.name.split(".");
 
-    let sublevels = new Array<string>();
+    const sublevels = new Array<string>();
 
     for (let i = 0; i < parts.length; i++) {
 
@@ -37,9 +37,9 @@ export default class Namespace {
   }
 
   // Helper Methods
-  GetFamily(namespaces: Namespace[], includeThis: boolean = true): Array<Namespace> {
+  GetFamily(namespaces: Namespace[], includeThis = true): Array<Namespace> {
 
-    let family = new Array<Namespace>();
+    const family = new Array<Namespace>();
 
     for (const ns of namespaces) {
       // Get lower
@@ -73,9 +73,9 @@ export default class Namespace {
 
   static GetMatching(query: string, namespaces: Namespace[]): Array<Namespace> {
 
-    let included = new Array<Namespace>()
+    const included = new Array<Namespace>()
 
-    for (let ns of namespaces) {
+    for (const ns of namespaces) {
       if (ns.name.includes(query))
         included.push(ns);
     }
