@@ -1,24 +1,66 @@
-# docs-creator
+# Docs Creator
 
-## Project setup
-```
-npm install
-```
+## Developer notes
 
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
+### Namespaces
 
-### Compiles and minifies for production
-```
-npm run build
-```
+Properties:
 
-### Lints and fixes files
-```
-npm run lint
-```
+* Name
 
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+Creates Lower level namespaces if they don't exists
+if you create:
+This.Is.My.Namespace
+
+Then "This", "This.Is", "This.Is.My" and "This.Is.My.Namespace"
+
+### Classes
+
+Generics:
+Must inherit from: []
+
+Properties:
+
+* Name
+* Namespace
+* Inherits?
+* properties
+  * Name
+  * Type
+  * Default Value
+  * Description
+  * Visibility
+  * Static?
+
+Constructors:
+
+* Description
+
+Parameters:
+
+* Same as properties
+
+Methods:
+
+Same as Constructors but also returntype and "Throws" and is async
+Usage
+
+### Structures
+
+Basically class but no inheritance
+
+### Interfaces
+
+Same as classes but no Properties
+
+Usage
+
+### Enums
+
+Name
+Namespace
+Key - Value
+
+### Delegates
+
+Basically a method
