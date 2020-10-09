@@ -1,7 +1,10 @@
+import {v4} from "uuid";
+
 export default class Namespace {
 
   private _name = "";
   private _level = 0;
+  private _id = "";
 
   // Getters and Setters
   get name(): string {
@@ -17,6 +20,17 @@ export default class Namespace {
     return this._level;
   }
 
+  get id(): string {
+    return this._id;
+  }
+
+  public constructor(name = "") {
+    if (name != "")
+      this.name = name;
+
+    this._id = v4();
+  }
+
   get Sublevels(): Array<string> {
     const parts = this.name.split(".");
 
@@ -24,13 +38,14 @@ export default class Namespace {
 
     for (let i = 0; i < parts.length; i++) {
 
-      let currentSublevel = "";
+      const currentSublevel = new Array<string>();
 
       for (let j = 0; j <= i; j++) {
-        currentSublevel += parts[j];
+        if (parts[j] != "")
+          currentSublevel.push(parts[j]);
       }
 
-      sublevels.push(currentSublevel);
+      sublevels.push(currentSublevel.join("."));
     }
 
     return sublevels;

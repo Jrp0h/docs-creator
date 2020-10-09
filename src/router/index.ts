@@ -1,23 +1,56 @@
 import Vue from 'vue'
-import VueRouter, { RouteConfig } from 'vue-router'
-import Home from '../views/Home.vue'
+import VueRouter, {RouteConfig} from 'vue-router'
 
 Vue.use(VueRouter)
+
+import About from "@/views/About.vue";
+import NamespacesIndex from "@/views/Namespaces/Index.vue";
+import NamespacesCreate from "@/views/Namespaces/Create.vue";
 
 const routes: Array<RouteConfig> = [
   {
     path: '/',
-    name: 'Home',
-    component: Home
+    name: 'About',
+    component: About
   },
   {
-    path: '/about',
-    name: 'About',
-    // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
-    component: () => import(/* webpackChunkName: "about" */ '../views/About.vue')
-  }
+    path: '/namespaces',
+    name: 'Namespaces.Index',
+    component: NamespacesIndex
+  },
+  {
+    path: '/namespaces/create',
+    name: 'Namespaces.Create',
+    component: NamespacesCreate
+  },
+
+
+  // THESE ARE NOT IMPLEMENTED!
+  {
+    path: '/classes',
+    name: 'Classes.Index',
+    component: NamespacesCreate
+  },
+  {
+    path: '/structs',
+    name: 'Structs.Index',
+    component: NamespacesCreate
+  },
+  {
+    path: '/interfaces',
+    name: 'Interfaces.Index',
+    component: NamespacesCreate
+  },
+  {
+    path: '/enums',
+    name: 'Enums.Index',
+    component: NamespacesCreate
+  },
+  {
+    path: '/delegates',
+    name: 'Delegates.Index',
+    component: NamespacesCreate
+  },
 ]
 
 const router = new VueRouter({
