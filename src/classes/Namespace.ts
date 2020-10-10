@@ -59,7 +59,7 @@ export default class Namespace {
     for (const ns of namespaces) {
       // Get lower
 
-      if (ns.name == this.name && ns.level == this.level && !includeThis)
+      if (ns.id == this.id && !includeThis)
         continue;
 
       for (const sublevels of this.Sublevels) {
